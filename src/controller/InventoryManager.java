@@ -108,10 +108,9 @@ public class InventoryManager {
         Iterator it = books.keySet().iterator();
         while (it.hasNext()) {
             String key = (String) it.next();
-            /* Check by title */
-            if (books.get(key).equals(book)) {
+            
+            if (books.get(key).equals(book) && books.get(key).hashCode() == book.hashCode()) {
                 return true;
-            /* Check by ISBN */
             } else if (books.get(key).getIsbn().equals(book.getIsbn())){
                 return true;
             }
@@ -122,7 +121,7 @@ public class InventoryManager {
     
     public static void updateBook(String title, Float price, int stock) {
         Book book = new Book(title);
-        Iterator<String> it = books.keySet().iterator();
+        Iterator it = books.keySet().iterator();
         while (it.hasNext()) {
             String key = (String) it.next();
             if (books.get(key).equals(book)) {
@@ -138,7 +137,7 @@ public class InventoryManager {
         while (it.hasNext()) {
             String key = (String) it.next();
             if (books.get(key).getTitle().equals(Book.capitalizeString(title).trim())) {
-                it.remove();
+                books.remove(key);
                 break;
             } 
         }

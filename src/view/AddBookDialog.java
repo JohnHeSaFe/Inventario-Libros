@@ -68,7 +68,7 @@ public class AddBookDialog extends javax.swing.JDialog {
         jLabel3.setText("Precio:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 60, -1));
 
-        priceSpinner.setModel(new javax.swing.SpinnerNumberModel(0.0f, 0.0f, null, 1.0f));
+        priceSpinner.setModel(new javax.swing.SpinnerNumberModel(0.0f, null, null, 1.0f));
         getContentPane().add(priceSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 110, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -132,7 +132,7 @@ public class AddBookDialog extends javax.swing.JDialog {
         }
         
         if (!isbn.matches("^[0-9]+$")) {
-            JOptionPane.showMessageDialog(this, "El ISBN no puede tener caracteres especiales", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "El ISBN solo puede tener números", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
         
